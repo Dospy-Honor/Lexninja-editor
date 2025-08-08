@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const { createCanvas, loadImage, registerFont } = require('canvas');
@@ -93,8 +92,8 @@ function normalizePayload(body) {
 function guessTheme({ category, tags }) {
   const t = (category || '').trim();
   const has = (k) => tags.some(tag => tag.toLowerCase() === k);
-  if (t.includes('忍术') || has('fire')) return { bg: '#ffffffff', accent: '#ffffffff' };
-  if (t.includes('忍者') || has('knife')) return { bg: '#ffffffff', accent: '#ffffffff' };
+  if (t.includes('忍术')) return { bg: '#ffffffff', accent: '#ffffffff' };
+  if (t.includes('忍者')) return { bg: '#ffffffff', accent: '#ffffffff' };
   if (t.includes('状态')) return { bg: '#ffffffff', accent: '#ffffffff' };
   return { bg: '#ffffffff', accent: '#ffffffff' };
 }
@@ -174,23 +173,25 @@ app.post('/render', async (req, res) => {
     grad.addColorStop(1, '#ffffffff');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
+    // 边框
 
-    // 顶部横条与标题
+    // 标题
     ctx.fillStyle = theme.accent;
     ctx.fillRect(0, 0, W, 72);
 
     ctx.fillStyle = '#000000ff';
     ctx.font = 'bold 36px "Noto Sans SC", system-ui, sans-serif';
     ctx.textBaseline = 'middle';
-    ctx.fillText(data.name, 28, 36);
+    const P = 443 - data.name.length*36/2;
+    ctx.fillText(data.name, P, 655);
 
-    // 右上角编号与类别
+    // 编号
     ctx.font = '16px "Noto Sans SC", system-ui, sans-serif';
     ctx.textAlign = 'right';
     const catText = data.category ? `` : '';
     const numText = data.number ? `${data.number}` : '';
     const rightMeta = [catText, numText].filter(Boolean).join('  ·  ');
-    ctx.fillText(rightMeta, W - 24, 36);
+    ctx.fillText(rightMeta, W - 24, 1246);
     ctx.textAlign = 'left';
 
     // 插画区域
