@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8" />
+<title>蕾忍卡牌生成器</title>
+<style>
+  body { font:14px/1.5 system-ui, "Noto Sans SC"; padding:20px; display:flex; gap:20px; }
+  form { width:360px; padding:12px; border:1px solid #ddd; border-radius:10px; }
+  textarea { width:100%; height:90px; }
+  input, select { width:100%; }
+  img { max-width: 400px; border:1px solid #ddd; border-radius:10px; }
+  .hidden {
+      display: none;
+    }
+</style>
+<body>
+  <form id="cardForm">
+    <h3>填写卡牌信息</h3>
+    <label>标签（英文逗号分隔） <input name="tags" value="knife,fire"></label><br><br>
+    <label>名称 <input name="name" value="一刀一刀燃烧刀" required></label><br><br>
+    <label for="options">卡牌种类：</label>
+    <select id="main-select" name="type">
+      <option value="">--请选择--</option>
+      <option value="option1">忍术</option>
+      <option value="option2">忍者</option>
+      <option value="option3">状态</option>
+    </select>
+    
+    <div id="dynamic-content" class="hidden">
+      <div id="option1-content" class="hidden">
+        <label>发动时机1 <input name="chance_1" value="作为攻击使用/作为刀系装备使用:"></label><br><br>
+        <label>效果种类<input name="description_mode_1" value="fire"></label>
+        <label>Cost<input name="cost_1" value="2"></label>
+        <label>效果1 <textarea name="description_1">对指定玩家做两次火系攻击,每次造成1伤害</textarea></label><br>
+        <label>追加效果种类<input name="extra_description_1_mode" value="fire"></label>
+        <label>追加Cost<input name="cost_extra_1" value="+2"></label>
+        <label>追加内容<textarea name="extra_description_1">再对其做一次火系攻击-并造成其烧伤状态</textarea></label><br>
+        <label>发动时机2<input name="chance_2" value="在有人攻击时反制：抑刀抑刀难烧刀"></label><br><br>
+        <label>Cost<input name="cost_2" value="2"></label>
+        <label>效果2 <textarea name="description_2">无效化对方的火+刀系忍术</textarea></label><br>
+        <label>追加效果种类<input name="extra_description_2_mode" value=""></label>
+        <label>追加Cost<input name="cost_extra_2" value=""></label>
+        <label>追加内容<textarea name="extra_description_2"></textarea></label><br>
+        <label>编号 <input name="Nomber" value="BSK01"></label><br><br>
+         
+        <label>注释<input name="add" value=""></label>
+        <label>Copyright<input name="copyright" value="蕾忍对决alpha0.3基础包NAO1号蕾忍对决制作委员会出品"></label>
+      </div>
+      <div id="option2-content" class="hidden">
+        <label for="option2-select">选项2的下拉框：</label>
+        <select id="option2-select">
+          <option value="">--请选择--</option>
+          <option value="sub-option1">子选项1</option>
+          <option value="sub-option2">子选项2</option>
+        </select>
+      </div>
+    </div>
+  
+    <script>
+      const mainSelect = document.getElementById('main-select');
+      const dynamicContent = document.getElementById('dynamic-content');
+      const option1Content = document.getElementById('option1-content');
+      const option2Content = document.getElementById('option2-content');
+  
+      mainSelect.addEventListener('change', function () {
+        // 隐藏所有动态内容
+        dynamicContent.classList.add('hidden');
+        option1Content.classList.add('hidden');
+        option2Content.classList.add('hidden');
+  
+        // 根据选择显示对应内容
+        if (this.value === 'option1') {
+          dynamicContent.classList.remove('hidden');
+          option1Content.classList.remove('hidden');
+        } else if (this.value === 'option2') {
+          dynamicContent.classList.remove('hidden');
+          option2Content.classList.remove('hidden');
+        }
+      });
+    </script>
+
+    <!--<label>插画 URL（或留空） <input name="art"></label><br><br>-->
+    <label>插画文件 
+      <input type="file" id="artFile" accept="image/png">
+    </label>
+    
+
+    <button type="submit">生成并渲染</button>
+  </form>
+
+  <div>
+    <h3>渲染结果</h3>
+    <div id="result"></div>
+    <p><a id="download" href="#" download="card.png" style="display:none">下载 PNG</a></p>
+  </div>
+
+<script src="./src/card-submit.js"></script>
+</body>
+</html>
