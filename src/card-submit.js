@@ -59,6 +59,7 @@ document.getElementById('cardForm').addEventListener('submit', async (e) => {
         cost_extra_1: (fd.get('cost_extra_1') || '').trim(),
         extra_description_1: (fd.get('extra_description_1') || '').trim(),
         chance_2: (fd.get('chance_2') || '').trim(),
+        description_mode_2: (fd.get('description_mode_2') || '').trim(),
         cost_2: (fd.get('cost_2') || '').trim(),
         extra_description_2_mode: (fd.get('extra_description_2_mode') || '').trim(),
         cost_extra_2: (fd.get('cost_extra_2') || '').trim(),
