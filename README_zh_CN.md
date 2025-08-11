@@ -5,6 +5,6 @@
    大概就是这个样子
 ## Howto Guide
    安装Node.js LTS\
-   克隆这个储存库、
+   克隆这个储存库\
    运行start.bat或者start.sh
-##忍术来源于[蕾忍宗](https://www.wsfrs.com/)
+## 忍术来源于[蕾忍宗](https://www.wsfrs.com/)
