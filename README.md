@@ -5,7 +5,7 @@
 ## Howto Guide
   You need install node.js LTS.\
   Clone this repository.\
-  Run the start.bat or start.sh\
+  Run the start.bat or start.sh
 ## Every Ninjutsu belong to the [LexNinja](https://www.wsfrs.com/)
 ## Donate
    
