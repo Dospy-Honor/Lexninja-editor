@@ -1,4 +1,5 @@
 # LexNinja-Card-Editor
+ 简体中文[README](README_zh_CN.md)
 ## A Card Game Editor for LexNinja
 ## Sample 
    ![Sample](sample/NA01一刀一刀燃烧刀.png)
