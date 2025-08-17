@@ -4,8 +4,24 @@ const { createCanvas, loadImage, registerFont } = require('canvas');
 const path = require('path');
 
 try {
-  registerFont('./fonts/NotoSansSC-Regular.otf', { family: 'Noto Sans SC' });
-} catch (e) {
+  // 注册 RobotoMono 系列
+      registerFont('./fonts/RobotoMono-Bold-2.ttf', { family: 'Roboto Mono', weight: 'bold' });
+      registerFont('./fonts/RobotoMono-BoldItalic-3.ttf', { family: 'Roboto Mono', weight: 'bold', style: 'italic' });
+      registerFont('./fonts/RobotoMono-Italic-4.ttf', { family: 'Roboto Mono', style: 'italic' });
+      registerFont('./fonts/RobotoMono-Light-5.ttf', { family: 'Roboto Mono', weight: '300' });
+      registerFont('./fonts/RobotoMono-LightItalic-6.ttf', { family: 'Roboto Mono', weight: '300', style: 'italic' });
+      registerFont('./fonts/RobotoMono-Medium-7.ttf', { family: 'Roboto Mono', weight: '500' });
+      registerFont('./fonts/RobotoMono-MediumItalic-8.ttf', { family: 'Roboto Mono', weight: '500', style: 'italic' });
+      registerFont('./fonts/RobotoMono-Regular-9.ttf', { family: 'Roboto Mono', weight: 'normal' });
+      registerFont('./fonts/RobotoMono-Thin-10.ttf', { family: 'Roboto Mono', weight: '100' });
+      registerFont('./fonts/RobotoMono-ThinItalic-11.ttf', { family: 'Roboto Mono', weight: '100', style: 'italic' });
+
+// 注册思源黑体
+      registerFont('./fonts/SourceHanSansSC-Light-2.otf', { family: 'Source Han Sans SC', weight: '300' });
+      registerFont('./fonts/SourceHanSansSC-Medium-2.otf', { family: 'Source Han Sans SC', weight: '500' });
+      registerFont('./fonts/SourceHanSansSC-Normal-2.otf', { family: 'Source Han Sans SC', weight: '400' });
+} 
+catch (e) {
   console.warn('字体未注册：如需要中文更好显示，请在 ./fonts 放入 NotoSansSC-Regular.otf');
 }
 
