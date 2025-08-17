@@ -1,5 +1,6 @@
 # 蕾忍对决卡牌编辑器
-其实还没完成（（（
+其实还没完成（（（\
+[官方卡牌发布页](https://github.com/Dospy-Honor/lexninjabattle)
 ## Sample 
    ![Sample](sample/NA01一刀一刀燃烧刀.png)
    大概就是这个样子
