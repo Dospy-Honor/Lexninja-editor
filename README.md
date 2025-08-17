@@ -8,5 +8,7 @@
   Clone this repository.\
   Run the start.bat or start.sh
 ## Every Ninjutsu belong to the [LexNinja](https://www.wsfrs.com/)
+## Problems
+Still have some model error while the card need 3 description.
 ## Donate
    
