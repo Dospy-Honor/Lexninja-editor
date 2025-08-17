@@ -1,5 +1,5 @@
 # LexNinja-Card-Editor
- 简体中文[README](README_zh_CN.md)
+ 简体中文[README](README_zh_CN.md)\
  [Official card](https://github.com/Dospy-Honor/lexninjabattle)
 ## A Card Game Editor for LexNinja
 ## Sample 
